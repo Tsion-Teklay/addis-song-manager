@@ -4,6 +4,7 @@ import { Box } from './components/ui/Box';
 import { Heading, Text } from './components/ui/Text';
 import { fetchSongsRequest } from './features/songs/songsSlice';
 import { useAppDispatch, useAppSelector } from './store/hooks';
+import { SongForm } from './components/SongForm';
 
 export default function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ export default function App(): JSX.Element {
       </Text>
 
       <SongList />
+        <SongForm />
     </Box>
   );
 }
