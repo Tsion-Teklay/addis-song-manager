@@ -3,6 +3,7 @@ import express, { Application, Request, Response } from 'express';
 import { env } from './config/env.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 import songRoutes from './routes/song.routes.js';
+import statsRoutes from './routes/stats.routes.js';
 
 export function createApp(): Application {
   const app = express();
@@ -15,6 +16,7 @@ export function createApp(): Application {
   });
 
   app.use('/api/songs', songRoutes);
+  app.use('/api/stats', statsRoutes);
 
   app.use(notFound);
   app.use(errorHandler);
