@@ -5,7 +5,9 @@ import { Heading, Text } from './components/ui/Text';
 import { fetchSongsRequest } from './features/songs/songsSlice';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { SongForm } from './components/SongForm';
-
+import { SongFilters } from './components/SongFilters';
+import { fetchFacetsRequest } from './features/songs/songsSlice';
+ 
 export default function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state) => state.songs.filters);
@@ -15,6 +17,10 @@ export default function App(): JSX.Element {
     dispatch(fetchSongsRequest(filters));
   }, [dispatch, filters]);
 
+  useEffect(() => {
+    dispatch(fetchFacetsRequest());
+  }, [dispatch]);
+
   return (
     <Box maxWidth="1120px" mx="auto" px={4} py={6}>
       <Heading fontSize={6}>Song Manager</Heading>
@@ -22,6 +28,7 @@ export default function App(): JSX.Element {
         MERN test project - Express + MongoDB API, React + Redux-Saga client
       </Text>
 
+        <SongFilters />
       <SongList />
         <SongForm />
     </Box>
