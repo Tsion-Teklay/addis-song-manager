@@ -60,3 +60,10 @@ npm run dev
 ```
 
 *The frontend will be accessible at `http://localhost:5173` and connected to the backend.*
+
+## Live Demo
+
+- **Client:** https://addis-song-manager-lovat.vercel.app/
+- **API:** https://addis-song-manager-api.onrender.com/api/health
+
+> **Note to reviewers:** The API is hosted on Render's free tier, which goes to sleep after 15 minutes of inactivity. If the frontend shows a network error or takes a long time to load initially, please allow up to 30-50 seconds for the backend to wake up!
