@@ -4,7 +4,7 @@ import { SongForm } from './components/SongForm';
 import { SongList } from './components/SongList';
 import { StatsPanel } from './components/StatsPanel';
 import { Box, Flex } from './components/ui/Box';
-import { Heading, Text } from './components/ui/Text';
+import { Heading } from './components/ui/Text';
 import { fetchFacetsRequest, fetchSongsRequest } from './features/songs/songsSlice';
 import { fetchStatsRequest } from './features/stats/statsSlice';
 import { useAppDispatch, useAppSelector } from './store/hooks';
