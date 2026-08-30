@@ -1,7 +1,6 @@
 # Song Manager — Addis Software Test Project (MERN)
 
-Full stack song library: an Express + MongoDB REST API and a React + TypeScript client
-that lists, creates, updates, deletes and filters songs, plus a statistics dashboard.
+Full stack song library: an Express + MongoDB REST API and a React + TypeScript client that lists, creates, updates, deletes and filters songs, plus a statistics dashboard.
 
 - **Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, Docker
 - **Frontend:** React, TypeScript, Redux Toolkit, Redux-Saga, Emotion, Styled System, Vite
@@ -15,20 +14,49 @@ that lists, creates, updates, deletes and filters songs, plus a statistics dashb
   - songs per genre
   - songs and albums per artist
   - songs per album
-- The UI updates immediately after create / update / delete — no page reload
-  (sagas dispatch success actions, the reducer patches the list and re-requests stats)
+- The UI updates immediately after create / update / delete — no page reload (sagas dispatch success actions, the reducer patches the list and re-requests stats)
 - Centralised error handling with Mongoose validation messages surfaced in the UI
 
-## Project structure
-addis-song-manager/ ├── docker-compose.yml # mongo + api ├── backend/ # Express REST API (TypeScript) └── frontend/ # React SPA (TypeScript)
+## Project Structure
 
+```text
+addis-song-manager/
+├── docker-compose.yml  # mongo + api 
+├── backend/            # Express REST API (TypeScript) 
+└── frontend/           # React SPA (TypeScript)
+```
 
-## Getting started
+## Getting Started
 
-### 1. Run everything with Docker (recommended)
+### 1. Start the Backend & Database (Docker)
+Ensure Docker is running, then run the following in the root directory:
 
 ```bash
-docker compose up --build -d          # starts MongoDB + the API on :5000
-docker compose exec api npm run seed:prod   # optional sample data
+docker compose up --build -d
+```
+*This starts MongoDB and the API backend on port `5050`.*
 
- 
+**(Optional) Seed the database with sample data:**
+```bash
+docker compose exec api npm run seed:prod
+```
+
+### 2. Start the Frontend
+Open a new terminal, navigate to the `frontend` folder, and install dependencies:
+
+```bash
+cd frontend
+npm install
+```
+
+Create your environment file:
+```bash
+cp .env.example .env
+```
+
+Start the Vite development server:
+```bash
+npm run dev
+```
+
+*The frontend will be accessible at `http://localhost:5173` and connected to the backend.*

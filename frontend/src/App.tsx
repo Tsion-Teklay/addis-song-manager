@@ -28,9 +28,6 @@ export default function App(): JSX.Element {
       <Flex justifyContent="space-between" alignItems="baseline" mb={5} flexWrap="wrap">
         <Box>
           <Heading fontSize={6}>Song Manager</Heading>
-          <Text color="muted" mt={1}>
-            MERN test project · Express + MongoDB API, React + Redux-Saga client
-          </Text>
         </Box>
       </Flex>
 
