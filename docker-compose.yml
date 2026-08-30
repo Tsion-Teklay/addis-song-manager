@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: addis-mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./backend
+    container_name: addis-api
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      PORT: 5050
+      MONGO_URI: mongodb://mongo:27017/addis_songs
+      CLIENT_ORIGIN: http://localhost:5173
+      NODE_ENV: production
+    ports:
+      - '5050:5050'
+
+volumes:
+  mongo-data:
